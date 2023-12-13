@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.eadd5107.css",
+    "main.css": "/static/css/main.b487d87f.css",
     "main.js": "/static/js/main.c5905b16.js",
     "static/js/787.459c8671.chunk.js": "/static/js/787.459c8671.chunk.js",
-    "static/media/banner-background.png": "/static/media/banner-background.69c1bc4250cbe932e71f.png",
+    "static/media/banner-background.png": "/static/media/banner-background.d539bacbb56ffb0047e2.png",
     "static/media/project-elementales.png": "/static/media/project-elementales.69c1bc4250cbe932e71f.png",
     "static/media/project-trueCity.png": "/static/media/project-trueCity.004c8931790d8ace3b59.png",
     "static/media/animunch_backgrounds.jpg": "/static/media/animunch_backgrounds.a0c5bbf4f9951207608f.jpg",
@@ -35,12 +35,12 @@
     "static/media/arrow2.svg": "/static/media/arrow2.3d9522b6fd8f2464b7200ebf2c1bb09a.svg",
     "static/media/arrow1.svg": "/static/media/arrow1.0c89b5b635adf255c2822c630aaa6ccf.svg",
     "static/media/nav-icon2.svg": "/static/media/nav-icon2.178f497aa17b70c42df2a1a8c926ed01.svg",
-    "main.eadd5107.css.map": "/static/css/main.eadd5107.css.map",
+    "main.b487d87f.css.map": "/static/css/main.b487d87f.css.map",
     "main.c5905b16.js.map": "/static/js/main.c5905b16.js.map",
     "787.459c8671.chunk.js.map": "/static/js/787.459c8671.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eadd5107.css",
+    "static/css/main.b487d87f.css",
     "static/js/main.c5905b16.js"
   ]
 }
