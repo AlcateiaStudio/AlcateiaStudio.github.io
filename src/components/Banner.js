@@ -65,7 +65,7 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h1>Studio Alcateia</h1>
+                <h1>Estudio Alcateia</h1>
                   <p>{}
                     <span className="txt-rotate" dataPeriod="1000" 
                       data-rotate='[
