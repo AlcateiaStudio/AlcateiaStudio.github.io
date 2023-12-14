@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -22,24 +24,27 @@ export const Contact = () => {
       })
   }
 
-  const handleSubmit = async (e) => {
+  const form = useRef();
+	
+  const sendEmail = (e) => {
     e.preventDefault();
     setButtonText("Enviando...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Enviar");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
-    }
+
+    emailjs.sendForm(
+      'service_4cb5x1m', 
+      'template_o3a4kjt', 
+      form.current, 
+      '_Am5qJdqQT5bGidCx'
+      )
+      .then((result) => {
+        setButtonText("Enviar");
+        setFormDetails(formInitialDetails);
+        console.log(result.text);
+        console.log("message sent");
+      //   e.target.reset();
+      }, (error) => {
+        console.log(error.text);
+      });
   };
 
   return (
@@ -58,19 +63,19 @@ export const Contact = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>Vamos Conversar</h2>
-                <form onSubmit={handleSubmit}>
+                <form ref={form} onSubmit={sendEmail}>
                   <Row>
                     <Col size={12} className="px-1">
-                      <input type="text" value={formDetails.name} placeholder="Nome" onChange={(e) => onFormUpdate('name', e.target.value)} required />
+                      <input type="text" name="from_name" value={formDetails.name} placeholder="Nome" onChange={(e) => onFormUpdate('name', e.target.value)} required />
                     </Col>
                     <Col size={12} sm={6} className="px-1">
-                      <input type="email" value={formDetails.email} placeholder="Email" onChange={(e) => onFormUpdate('email', e.target.value)} />
+                      <input type="email" name="from_email" value={formDetails.email} placeholder="E-mail" onChange={(e) => onFormUpdate('email', e.target.value)} />
                     </Col>
                     <Col size={12} sm={10} className="px-1">
-                      <input type="text" value={formDetails.subject} placeholder="Assunto" onChange={(e) => onFormUpdate('subject', e.target.value)} />
+                      <input type="text" name="subject" value={formDetails.subject} placeholder="Assunto" onChange={(e) => onFormUpdate('subject', e.target.value)} />
                     </Col>
                     <Col size={12} className="px-1">
-                      <textarea rows="6" value={formDetails.message} placeholder="Mensagem" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
+                      <textarea rows="6" name="message" value={formDetails.message} placeholder="Mensagem" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                       <button type="submit"><span>{buttonText}</span></button>
                     </Col>
                     {
