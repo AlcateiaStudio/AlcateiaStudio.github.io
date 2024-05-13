@@ -1,0 +1,93 @@
+.main {
+    color: #fff;
+}
+
+.main h1 {
+    font-size: 52px;
+}
+
+.main p,
+.main li {
+    font-size: 24px;
+}
+
+.index-game-section,
+.about-game-section,
+.caractaristics-game-section {
+    background-size: cover;
+    background-position: center;
+}
+
+.index-game-section {
+    height: 110vh;
+}
+
+.index-game-section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-game-section--text-area h1 {
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: 20px 30px;
+    border: 3px solid #fff;
+}
+
+
+.about-game-section,
+.caractaristics-game-section {
+    height: calc(80vh + 40px);
+    display: flex;
+}
+
+.about-game-section--text-area,
+.caractaristics-game-section--text-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 45%;
+    padding: 20px 60px;
+    color: black;
+    background-color: #fff;
+    height: 80vh;
+}
+
+.caractaristics-game-section{
+    flex-direction: row-reverse;
+}
+
+.about-game-section--shape {
+    width: 0;
+    height: 0;
+    border-top: calc(80vh + 50px) solid #fff;
+    border-right: 200px solid transparent;
+}
+
+.caractaristics-game-section--shape {
+    width: 0;
+    height: 0;
+    border-bottom: calc(80vh + 40px) solid #fff;
+    border-left: 200px solid transparent;
+}
+
+@media only screen and (max-width: 911px) {
+    .about-game-section--shape, .caractaristics-game-section--shape{
+        display: none;
+    }
+
+    .about-game-section--text-area, .caractaristics-game-section--text-area{
+        width: 100%;
+        background-color: rgb(0, 0, 0,0.5);
+        color: white;
+        height: 100%;
+        padding: 0 40px;
+        text-align: center;
+    }
+
+    .caractaristics-game-section, .about-game-section{
+        height: 100vh;
+    }
+}
